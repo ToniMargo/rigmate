@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-// const mongodb = require('./models/connect');
 const createError = require('http-errors');
 
 require('dotenv').config();
@@ -15,9 +14,8 @@ app
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
   })
-  .use(express.json())
-  .use(express.urlencoded({ extended: true }))
   .use('/', require('./routes'))
+  .use(express.urlencoded({ extended: true }))
   .use(async (req, res, next) => {
     next(createError.NotFound());
   })
