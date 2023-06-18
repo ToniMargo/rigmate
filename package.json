@@ -1,0 +1,31 @@
+{
+  "name": "toni-pizzeria",
+  "version": "1.0.0",
+  "description": "Personal Toni's Pizzeria project for the CSE 341 course.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write './**/*{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+  },
+  "keywords": [],
+  "author": "Antonio Martinez",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.1.4",
+    "eslint": "^8.42.0",
+    "express": "^4.18.2",
+    "http-errors": "^1.6.2",
+    "joi": "^17.9.2",
+    "mongodb": "^5.6.0",
+    "mongoose": "^7.3.0",
+    "nodemon": "^2.0.22",
+    "swagger": "^0.0.1",
+    "swagger-autogen": "^2.23.1",
+    "swagger-ui-express": "^4.6.3",
+    "validate.js": "^0.13.1",
+    "validatejs": "^0.0.2"
+  }
+}
