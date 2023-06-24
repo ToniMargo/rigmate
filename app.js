@@ -5,7 +5,7 @@ const createError = require('http-errors');
 require('dotenv').config();
 require('./db/init_mongodb');
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT;
 const app = express();
 
 app
