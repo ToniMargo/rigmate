@@ -7,10 +7,42 @@
   },
   "host": "toni-pizzeria.onrender.com",
   "basePath": "/",
+  "tags": {
+    "name": "Customers"
+  },
   "schemes": [
     "https"
   ],
   "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/profile": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
     "/customers/": {
       "get": {
         "description": "",
