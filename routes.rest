@@ -1,163 +1,74 @@
 #-------------#-------------#-------------#-------------#-------------#-------------#-------------#-------------
-#-------------------------------------------------CUSTOMERS----------------------------------------------------#
+#-------------------------------------------------userS----------------------------------------------------#
 #--------------#-------------#-------------#-------------#-------------#-------------#-------------#------------
 
-### Get all customers
-GET http://localhost:8080/login
+### Get all users
+GET http://localhost:8080/users
 
-### Get a single customer by id
-GET http://localhost:8080/customers/648cc8a8c502fca77c14fd02
+### Get a single user by id
+GET http://localhost:8080/users/64a32f35efb553d9d34c27da
 
-### Create customer with the data of the body of the request
-POST http://localhost:8080/customers HTTP/1.1
+### Create user with the data of the body of the request
+POST http://localhost:8080/users HTTP/1.1
 Content-Type: application/json; charset=utf-8
 
 {
-    "customer_name": "Antonio Martinez",
-    "email": "tonihmartinez@gmail.com",
-    "password": "Z@nchopanz4",
-    "address": "456 Exeter Street, Cityville",
-    "phone": "999-888-0011"
+    "username": "CrazyDude234",
+    "email": "me@mail.com",
+    "password": "Z@nchopanz4"
 }
 
-### Update customer with id
-PUT http://localhost:8080/customers/048cc8a8c502fca77c14fd02 HTTP/1.1
+### Update user with id
+PUT http://localhost:8080/users/048cc8a8c502fca77c14fd02 HTTP/1.1
 Content-Type: application/json; charset=utf-8
 
 {
-    "customer_name": "Marcos Martinez",
-    "email": "marcomartine@gmail.com",
-    "password": "D@shjhj?", 
-    "address": "456 Exeter Street, Cityville",
-    "phone": "999-888-0011"
+    "username": "CrazyDudette345",
+    "email": "me@mail.com",
+    "password": "Z@nchopanz4"
 }
 
-### Delete customer with id
-DELETE  http://localhost:8080/customers/648f969fd5b23b1bb2a69f07
+### Delete user with id
+DELETE  http://localhost:8080/users/64a3079694ca15fa5081578a
+
+
+### Create rig with the user id of the body of the request
+POST http://localhost:8080/users/64a36c7e0a906f9175384482/rig HTTP/1.1
+Content-Type: application/json; charset=utf-8
+
+{
+    "rig_name": "Titanium",
+  "description": "Unleash the power of the Titanium rig. Designed for gamers who demand nothing but the best performance.",
+  "motherboard": {
+    "manufacturer": "ASRock",
+    "model": "X570 Taichi"
+  },
+  "cpu": {
+    "manufacturer": "AMD",
+    "model": "Ryzen 7 5800X"
+  },
+  "gpu": {
+    "manufacturer": "NVIDIA",
+    "model": "GeForce RTX 3070"
+  },
+  "ram": {
+    "manufacturer": "Corsair",
+    "capacity": 32,
+    "speed": "DDR4"
+  },
+  "resolution": "3840x2160"
+}
+
+### Delete rig with user id
+DELETE  http://localhost:8080/users/64a32f35efb553d9d34c27da/rig
+
 
 #-------------#-------------#-------------#-------------#-------------#-------------#-------------#-------------
-#-------------------------------------------------PIZZAS-------------------------------------------------------#
+#-------------------------------------------------RIGS----------------------------------------------------#
 #--------------#-------------#-------------#-------------#-------------#-------------#-------------#------------
 
-### Get all pizzas
-GET http://localhost:8080/pizzas
+### Get all rigs
+GET http://localhost:8080/rigs
 
-### Get a single pizza by id
-GET http://localhost:8080/pizzas/6484b1527e439aee595cb80f
-
-### Create pizza with the data of the body of the request
-POST http://localhost:8080/pizzas HTTP/1.1
-Content-Type: application/json; charset=utf-8
-
-{
-    "pizza_name": "Pepperoni and Jalapeno",
-    "description": "Classic American pizza with tomato sauce, mozzarella cheese, pepperoni, and jalapeno.",
-    "toppings": [
-      "Tomato Sauce"
-    ],
-    "price": 10.99
-}
-
-### Update pizza with id
-PUT http://localhost:8080/pizzas/648ed24bd33d3fc64e057933 HTTP/1.1
-Content-Type: application/json; charset=utf-8
-
-{
-    "pizza_name": "Pepperoni and Jalapeno",
-    "description": "Classic American pizza with tomato sauce, mozzarella cheese, pepperoni, and jalapeno.",
-    "toppings": [
-      "Tomato Sauce",
-      "Mozzarella Cheese",
-      "Pepperoni",
-      "Jalapeno"
-    ],
-    "price": 10.99
-}
-
-### Delete pizza with id
-DELETE  http://localhost:8080/pizzas/6484eb907cea11435b5e0f63
-
-
-
-//########//########//########//########//########//########//########//########//########//
-//########//########//########//########//########//########//########//########//########//
-
-// PRODUCTION Deploy
-
-### Get all customers
-GET https://toni-pizzeria.onrender.com/customers
-
-### Get a single customer by id
-GET https://toni-pizzeria.onrender.com/customers/64682123955a52616a3e61ca
-
-### Create customer with the data of the body of the request
-POST https://toni-pizzeria.onrender.com/customers HTTP/1.1
-Content-Type: application/json; charset=utf-8
-
-{
-    "firstName": "Marco",
-    "lastName": "Martinez",
-    "email": "marcomartine@gmail.com",
-    "favoriteColor": "blue",
-    "birthday": "01/05/68"
-}
-
-### Update customer with id
-PUT https://toni-pizzeria.onrender.com/customers/64682123955a52616a3e61ca HTTP/1.1
-Content-Type: application/json; charset=utf-8
-
-{
-    "firstName": "Vianney",
-    "lastName": "Alcala",
-    "email": "vianneyalcala@gmail.com",
-    "favoriteColor": "indigo",
-    "birthday": "06/15/94"
-}
-
-### Delete customer with id
-DELETE  https://toni-pizzeria.onrender.com/customers/648b949ccbcf2305f93f4686
-
-#-------------#-------------#-------------#-------------#-------------#-------------#-------------#-------------
-#-------------------------------------------------PIZZAS-------------------------------------------------------#
-#--------------#-------------#-------------#-------------#-------------#-------------#-------------#------------
-
-### Get all pizzas
-GET https://toni-pizzeria.onrender.com/pizzas
-
-### Get a single pizza by id
-GET https://toni-pizzeria.onrender.com/pizzas/6484b1527e439aee595cb80f
-
-### Create pizza with the data of the body of the request
-POST https://toni-pizzeria.onrender.com/pizzas HTTP/1.1
-Content-Type: application/json; charset=utf-8
-
-{
-    "pizza_name": "Margherita",
-    "description": "Classic Italian pizza with tomato sauce, mozzarella cheese, and fresh basil.",
-    "toppings": [
-      "Tomato Sauce",
-      "Mozzarella Cheese",
-      "Fresh Basil",
-      "Aioli"
-    ],
-    "price": 10.99
-}
-
-### Update pizza with id
-PUT https://toni-pizzeria.onrender.com/pizzas/64682123955a52616a3e61ca HTTP/1.1
-Content-Type: application/json; charset=utf-8
-
-{
-    "pizza_name": "Pepperoni and Jalapeno",
-    "description": "Classic American pizza with tomato sauce, mozzarella cheese, pepperoni, and jalapeno.",
-    "toppings": [
-      "Tomato Sauce",
-      "Mozzarella Cheese",
-      "Pepperoni",
-      "Jalapeno"
-    ],
-    "price": 10.99
-}
-
-### Delete pizza with id
-DELETE  https://toni-pizzeria.onrender.com/pizzas/6468ff25b4de866bdde4665e
+### Get a single rig by user id
+GET http://localhost:8080/rigs/64a32f35efb553d9d34c27da
