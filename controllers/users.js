@@ -101,7 +101,6 @@ const createRig = async (req, res, next) => {
     }
     const _id = new ObjectId(req.params.id);
     const owner = user.username;
-    console.log(owner);
     const { rig_name, description, motherboard, cpu, gpu, ram, resolution } = req.body;
 
     const newRig = new Rig({
@@ -140,7 +139,7 @@ const updateRig = async (req, res, next) => {
 
     // Update the rig data
     Object.assign(user.rig, req.body);
-
+    console.log(req.body);
     const newRig = await Rig.findByIdAndUpdate(req.params.id, req.body, { new: true });
 
     // await rig.save();

@@ -16,7 +16,6 @@ const getAllRigs = async (req, res, next) => {
 const getSingleRig = async (req, res, next) => {
   try {
     const rigId = req.params.id;
-    console.log(req.params);
     const doesExist = await Rig.findById(rigId);
     if (!doesExist) throw createError.NotFound('Rig not found');
 
