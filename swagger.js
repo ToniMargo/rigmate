@@ -2,10 +2,10 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
   info: {
-    title: 'Toni Pizzeria',
-    description: 'Toni Pizzeria API'
+    title: 'RIGmate',
+    description: 'RIGmate API'
   },
-  host: 'toni-pizzeria.onrender.com',
+  host: 'rigmate.onrender.com',
   schemes: ['https']
 };
 

@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
-const customerSchema = Joi.object({
-  customer_name: Joi.string().required(),
+const userSchema = Joi.object({
+  username: Joi.string().required(),
 
   email: Joi.string().email().lowercase().required(),
 
@@ -13,13 +13,9 @@ const customerSchema = Joi.object({
       'string.min': 'Must have at least 6 characters',
       'object.regex': 'Must have at least 6 characters',
       'string.pattern.base': 'Must have at least one capital letter and one special character'
-    }),
-
-  address: Joi.string().required(),
-
-  phone: Joi.string().required()
+    })
 });
 
 module.exports = {
-  customerSchema
+  userSchema
 };

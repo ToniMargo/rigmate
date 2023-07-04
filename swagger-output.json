@@ -1,41 +1,16 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Toni Pizzeria",
-    "description": "Toni Pizzeria API",
+    "title": "RIGmate",
+    "description": "RIGmate API",
     "version": "1.0.0"
   },
-  "host": "toni-pizzeria.onrender.com",
+  "host": "rigmate.onrender.com",
   "basePath": "/",
-  "tags": {
-    "name": "Customers"
-  },
   "schemes": [
     "https"
   ],
   "paths": {
-    "/": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/profile": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api-docs": {
       "get": {
         "description": "",
@@ -43,7 +18,7 @@
         "responses": {}
       }
     },
-    "/customers/": {
+    "/users/": {
       "get": {
         "description": "",
         "parameters": [],
@@ -62,19 +37,13 @@
             "schema": {
               "type": "object",
               "properties": {
-                "customer_name": {
+                "username": {
                   "example": "any"
                 },
                 "email": {
                   "example": "any"
                 },
                 "password": {
-                  "example": "any"
-                },
-                "address": {
-                  "example": "any"
-                },
-                "phone": {
                   "example": "any"
                 }
               }
@@ -88,7 +57,7 @@
         }
       }
     },
-    "/customers/{id}": {
+    "/users/{id}": {
       "get": {
         "description": "",
         "parameters": [
@@ -120,19 +89,13 @@
             "schema": {
               "type": "object",
               "properties": {
-                "customer_name": {
+                "username": {
                   "example": "any"
                 },
                 "email": {
                   "example": "any"
                 },
                 "password": {
-                  "example": "any"
-                },
-                "address": {
-                  "example": "any"
-                },
-                "phone": {
                   "example": "any"
                 }
               }
@@ -162,10 +125,17 @@
         }
       }
     },
-    "/pizzas/": {
+    "/users/{id}/rig": {
       "get": {
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -176,43 +146,40 @@
         "description": "",
         "parameters": [
           {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
             "name": "body",
             "in": "body",
             "schema": {
               "type": "object",
               "properties": {
-                "pizza_name": {
+                "rig_name": {
                   "example": "any"
                 },
                 "description": {
                   "example": "any"
                 },
-                "toppings": {
+                "motherboard": {
                   "example": "any"
                 },
-                "price": {
+                "cpu": {
+                  "example": "any"
+                },
+                "gpu": {
+                  "example": "any"
+                },
+                "ram": {
+                  "example": "any"
+                },
+                "resolution": {
                   "example": "any"
                 }
               }
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/pizzas/{id}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -236,16 +203,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "pizza_name": {
-                  "example": "any"
-                },
-                "description": {
-                  "example": "any"
-                },
-                "toppings": {
-                  "example": "any"
-                },
-                "price": {
+                "id": {
                   "example": "any"
                 }
               }
@@ -271,6 +229,17 @@
         "responses": {
           "204": {
             "description": "No Content"
+          }
+        }
+      }
+    },
+    "/rigs/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
