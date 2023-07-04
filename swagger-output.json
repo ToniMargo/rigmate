@@ -196,6 +196,36 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "rig_name": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "motherboard": {
+                  "example": "any"
+                },
+                "cpu": {
+                  "example": "any"
+                },
+                "gpu": {
+                  "example": "any"
+                },
+                "ram": {
+                  "example": "any"
+                },
+                "resolution": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {

@@ -136,11 +136,15 @@ const updateRig = async (req, res, next) => {
     if (!user) {
       throw new Error('User not found.');
     }
+    const { rig_name, description, motherboard, cpu, gpu, ram, resolution } = req.body;
 
     // Update the rig data
     Object.assign(user.rig, req.body);
-    console.log(req.body);
-    const newRig = await Rig.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const newRig = await Rig.findByIdAndUpdate(
+      req.params.id,
+      { rig_name, description, motherboard, cpu, gpu, ram, resolution },
+      { new: true }
+    );
 
     // await rig.save();
     await user.save();
