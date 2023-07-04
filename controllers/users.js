@@ -85,6 +85,7 @@ const deleteUser = async (req, res, next) => {
     if (!doesExist) throw createError.NotFound('user not found');
 
     await User.findByIdAndDelete(userId);
+    await Rig.findByIdAndDelete(req.params.id);
 
     res.sendStatus(204); // No Content
   } catch (error) {
@@ -140,10 +141,11 @@ const updateRig = async (req, res, next) => {
     // Update the rig data
     Object.assign(user.rig, req.body);
 
-    await Rig.findByIdAndUpdate(req.body.id, req.body, { new: true });
+    const newRig = await Rig.findByIdAndUpdate(req.params.id, req.body, { new: true });
 
     // await rig.save();
     await user.save();
+    await newRig.save();
 
     res.send(user);
 
@@ -162,6 +164,7 @@ const deleteRig = async (req, res, next) => {
     }
 
     user.rig = undefined;
+    await Rig.findByIdAndDelete(req.params.id);
     await user.save();
 
     res.sendStatus(204); // No Content

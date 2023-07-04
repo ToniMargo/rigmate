@@ -1,7 +1,6 @@
 const createError = require('http-errors');
 const db = require('../models');
 const Rig = db.user.Rig;
-const ObjectId = require('mongodb').ObjectId;
 
 // ADMIN HAS ACCESS TO THIS:
 
@@ -16,8 +15,8 @@ const getAllRigs = async (req, res, next) => {
 
 const getSingleRig = async (req, res, next) => {
   try {
-    const rigId = new ObjectId(req.params.id);
-
+    const rigId = req.params.id;
+    console.log(req.params);
     const doesExist = await Rig.findById(rigId);
     if (!doesExist) throw createError.NotFound('Rig not found');
 
