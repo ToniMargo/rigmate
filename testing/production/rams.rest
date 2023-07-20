@@ -1,0 +1,30 @@
+### Get all rams
+GET https://rigmate.onrender.com/rams
+
+### Get a single ram by user id
+GET https://rigmate.onrender.com/rams/64a494fac8113c161b1d9b05
+
+### Create ram with the user id of the body of the request
+POST https://rigmate.onrender.com/rams/ HTTP/1.1
+Content-Type: application/json; charset=utf-8
+
+{
+  "manufacturer": "Corsair",
+  "model": "Vengeance LPX",
+  "capacity": "16GB",
+  "speed": "3200 MHz"
+}
+
+### Update ram with the user id of the body of the request
+PUT https://rigmate.onrender.com/rams/64a494fac8113c161b1d9b05 HTTP/1.1
+Content-Type: application/json; charset=utf-8
+
+{
+  "manufacturer": "Corsair",
+  "model": "Vengeance LPX",
+  "capacity": "32GB",
+  "speed": "3200 MHz"
+}
+
+### Delete ram with user id
+DELETE  https://rigmate.onrender.com/rams/64a460cbfa9f0db9576f7e7e

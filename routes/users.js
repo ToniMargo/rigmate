@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 const usersController = require('../controllers/users');
-const rigController = require('../controllers/rigs');
+const getUserRig = require('../controllers/rigs').getSingleRig;
 
 // GET /feed/posts
 router.get('/', usersController.getAllUsers);
@@ -19,7 +19,7 @@ router.put('/:id', usersController.updateUser);
 router.delete('/:id', usersController.deleteUser);
 // delete user in localhost:8080/users/
 
-router.get('/:id/rig', rigController.getSingleRig);
+router.get('/:id/rig', getUserRig);
 
 router.post('/:id/rig', usersController.createRig);
 

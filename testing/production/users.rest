@@ -1,0 +1,28 @@
+### Get all users
+GET https://rigmate.onrender.com/users
+
+### Get a single user by id
+GET https://rigmate.onrender.com/users/64a32f35efb553d9d34c27da
+
+### Create user with the data of the body of the request
+POST https://rigmate.onrender.com/users HTTP/1.1
+Content-Type: application/json; charset=utf-8
+
+{
+    "username": "CrazyDude234",
+    "email": "me@mail.com",
+    "password": "Z@nchopanz4"
+}
+
+### Update user with id
+PUT https://rigmate.onrender.com/users/048cc8a8c502fca77c14fd02 HTTP/1.1
+Content-Type: application/json; charset=utf-8
+
+{
+    "username": "CrazyDudette345",
+    "email": "me@mail.com",
+    "password": "Z@nchopanz4"
+}
+
+### Delete user with id
+DELETE  https://rigmate.onrender.com/users/64a36c7e0a906f9175384482

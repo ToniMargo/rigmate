@@ -1,0 +1,32 @@
+### Get all mobos
+GET https://rigmate.onrender.com/mobos
+
+### Get a single mobo by user id
+GET https://rigmate.onrender.com/mobos/64a494fac8113c161b1d9b05
+
+### Create mobo with the user id of the body of the request
+POST https://rigmate.onrender.com/mobos/ HTTP/1.1
+Content-Type: application/json; charset=utf-8
+
+{
+  "manufacturer": "Gigabyte",
+  "model": "B550 AORUS PRO",
+  "socket": "AM4",
+  "size_factor": "ATX"
+}
+
+
+### Update mobo with the user id of the body of the request
+PUT https://rigmate.onrender.com/mobos/64a494fac8113c161b1d9b05/ HTTP/1.1
+Content-Type: application/json; charset=utf-8
+
+{
+  "manufacturer": "Gigabyte",
+  "model": "B450 AORUS PRO",
+  "socket": "AM4",
+  "size_factor": "ATX"
+}
+
+
+### Delete mobo with user id
+DELETE  https://rigmate.onrender.com/mobos/64a460cbfa9f0db9576f7e7e/

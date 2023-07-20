@@ -1,0 +1,62 @@
+### Get all rigs
+GET https://rigmate.onrender.com/rigs
+
+### Get a single rig by user id
+GET https://rigmate.onrender.com/rigs/64a494fac8113c161b1d9b05
+
+### Create rig with the user id of the body of the request
+POST https://rigmate.onrender.com/users/64a36c7e0a906f9175384482/rig HTTP/1.1
+Content-Type: application/json; charset=utf-8
+
+{
+    "rig_name": "Titanium",
+  "description": "Unleash the power of the Titanium rig. Designed for gamers who demand nothing but the best performance.",
+  "motherboard": {
+    "manufacturer": "ASRock",
+    "model": "X570 Taichi"
+  },
+  "cpu": {
+    "manufacturer": "AMD",
+    "model": "Ryzen 7 5800X"
+  },
+  "gpu": {
+    "manufacturer": "NVIDIA",
+    "model": "GeForce RTX 3070"
+  },
+  "ram": {
+    "manufacturer": "Corsair",
+    "capacity": 32,
+    "speed": "DDR4"
+  },
+  "resolution": "3840x2160"
+}
+
+### Update rig with the user id of the body of the request
+PUT https://rigmate.onrender.com/users/64a494fac8113c161b1d9b05/rig HTTP/1.1
+Content-Type: application/json; charset=utf-8
+
+{
+      "motherboard": {
+        "manufacturer": "Gigabyte",
+        "model": "Z590 AORUS Master"
+      },
+      "cpu": {
+        "manufacturer": "Intel",
+        "model": "Core i9-11900K"
+      },
+      "gpu": {
+        "manufacturer": "AMD",
+        "model": "Radeon RX 6900 XT"
+      },
+      "ram": {
+        "manufacturer": "G.Skill",
+        "capacity": 64,
+        "speed": "DDR4"
+      },
+      "rig_name": "Indigo Beast",
+      "description": "Dominate your opponents with the power of the Indigo Beast. Built for extreme gaming performance and speed.",
+      "resolution": "2560x1440"
+    }
+
+### Delete rig with user id
+DELETE  https://rigmate.onrender.com/users/64a460cbfa9f0db9576f7e7e/rig

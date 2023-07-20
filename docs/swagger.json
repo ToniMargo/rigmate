@@ -1,0 +1,1194 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "RIGmate",
+    "description": "RIGmate API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://rigmate.onrender.com"
+    }
+  ],
+  "tags": [
+    {
+      "name": "User",
+      "description": "User operations"
+    },
+    {
+      "name": "RIG",
+      "description": "Admin RIG data manipulation"
+    },
+    {
+      "name": "Motherboard",
+      "description": "Admin motherboard data manipulation"
+    },
+    {
+      "name": "CPU",
+      "description": "Admin CPU data manipulation"
+    },
+    {
+      "name": "GPU",
+      "description": "Admin GPU data manipulation"
+    },
+    {
+      "name": "RAM",
+      "description": "Admin RAM data manipulation"
+    }
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "summary": "Get all users",
+        "operationId": "getAllUsers",
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new user",
+        "operationId": "createUser",
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "description": "User object to be created",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The created user object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "summary": "Get a single user by ID",
+        "operationId": "getSingleUser",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the user to retrieve",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The user object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a user by ID",
+        "operationId": "updateUser",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the user to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Updated user object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated user object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a user by ID",
+        "operationId": "deleteUser",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the user to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "User successfully deleted"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/users/{id}/rig": {
+      "get": {
+        "summary": "Get a single user's rig by ID",
+        "operationId": "getUserRig",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the user to retrieve the rig from",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The user's rig object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Rig"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Rig not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new rig for a user",
+        "operationId": "createRig",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the user to create the rig for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Rig object to be created",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Rig"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The created rig object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Rig"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a user's rig by ID",
+        "operationId": "updateRig",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the user to update the rig for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Updated rig object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Rig"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated rig object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Rig"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Rig not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a user's rig by ID",
+        "operationId": "deleteRig",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the user to delete the rig from",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Rig successfully deleted"
+          },
+          "404": {
+            "description": "Rig not found"
+          }
+        }
+      }
+    },
+    "/rigs": {
+      "get": {
+        "summary": "Get all rigs",
+        "operationId": "getAllRigs",
+        "tags": [
+          "RIG"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of rigs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Rig"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rigs/{id}": {
+      "get": {
+        "summary": "Get a single rig by ID",
+        "operationId": "getSingleRig",
+        "tags": [
+          "RIG"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the rig to retrieve",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The rig object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Rig"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Rig not found"
+          }
+        }
+      }
+    },
+    "/mobos": {
+      "get": {
+        "summary": "Get all motherboards",
+        "operationId": "getAllMobos",
+        "tags": [
+          "Motherboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of motherboards",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Motherboard"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new motherboard",
+        "operationId": "createMobo",
+        "tags": [
+          "Motherboard"
+        ],
+        "requestBody": {
+          "description": "Motherboard object to be created",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Motherboard"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The created motherboard object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Motherboard"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mobos/{id}": {
+      "get": {
+        "summary": "Get a single motherboard by ID",
+        "operationId": "getSingleMobo",
+        "tags": [
+          "Motherboard"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the motherboard to retrieve",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The motherboard object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Motherboard"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Motherboard not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a motherboard by ID",
+        "operationId": "updateMobo",
+        "tags": [
+          "Motherboard"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the motherboard to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Updated motherboard object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Motherboard"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated motherboard object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Motherboard"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Motherboard not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a motherboard by ID",
+        "operationId": "deleteMobo",
+        "tags": [
+          "Motherboard"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the motherboard to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Motherboard successfully deleted"
+          },
+          "404": {
+            "description": "Motherboard not found"
+          }
+        }
+      }
+    },
+    "/cpus": {
+      "get": {
+        "summary": "Get all CPUs",
+        "operationId": "getAllCpus",
+        "tags": [
+          "CPU"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of CPUs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Cpu"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new CPU",
+        "operationId": "createCpu",
+        "tags": [
+          "CPU"
+        ],
+        "requestBody": {
+          "description": "CPU object to be created",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Cpu"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The created CPU object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cpu"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cpus/{id}": {
+      "get": {
+        "summary": "Get a single CPU by ID",
+        "operationId": "getSingleCpu",
+        "tags": [
+          "CPU"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the CPU to retrieve",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The CPU object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cpu"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "CPU not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a CPU by ID",
+        "operationId": "updateCpu",
+        "tags": [
+          "CPU"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the CPU to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Updated CPU object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Cpu"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated CPU object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cpu"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "CPU not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a CPU by ID",
+        "operationId": "deleteCpu",
+        "tags": [
+          "CPU"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the CPU to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "CPU successfully deleted"
+          },
+          "404": {
+            "description": "CPU not found"
+          }
+        }
+      }
+    },
+    "/gpus": {
+      "get": {
+        "summary": "Get all GPUs",
+        "operationId": "getAllGpus",
+        "tags": [
+          "GPU"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of GPUs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Gpu"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new GPU",
+        "operationId": "createGpu",
+        "tags": [
+          "GPU"
+        ],
+        "requestBody": {
+          "description": "GPU object to be created",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Gpu"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The created GPU object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Gpu"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gpus/{id}": {
+      "get": {
+        "summary": "Get a single GPU by ID",
+        "operationId": "getSingleGpu",
+        "tags": [
+          "GPU"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the GPU to retrieve",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The GPU object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Gpu"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "GPU not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a GPU by ID",
+        "operationId": "updateGpu",
+        "tags": [
+          "GPU"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the GPU to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Updated GPU object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Gpu"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated GPU object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Gpu"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "GPU not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a GPU by ID",
+        "operationId": "deleteGpu",
+        "tags": [
+          "GPU"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the GPU to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "GPU successfully deleted"
+          },
+          "404": {
+            "description": "GPU not found"
+          }
+        }
+      }
+    },
+    "/rams": {
+      "get": {
+        "summary": "Get all RAMs",
+        "operationId": "getAllRams",
+        "tags": [
+          "RAM"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of RAMs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Ram"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new RAM",
+        "operationId": "createRam",
+        "tags": [
+          "RAM"
+        ],
+        "requestBody": {
+          "description": "RAM object to be created",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ram"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The created RAM object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ram"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rams/{id}": {
+      "get": {
+        "summary": "Get a single RAM by ID",
+        "operationId": "getSingleRam",
+        "tags": [
+          "RAM"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the RAM to retrieve",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The RAM object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ram"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "RAM not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a RAM by ID",
+        "operationId": "updateRam",
+        "tags": [
+          "RAM"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the RAM to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Updated RAM object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ram"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated RAM object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ram"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "RAM not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a RAM by ID",
+        "operationId": "deleteRam",
+        "tags": [
+          "RAM"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the RAM to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "RAM successfully deleted"
+          },
+          "404": {
+            "description": "RAM not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Rig": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string"
+          },
+          "rig_name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "motherboard": {
+            "$ref": "#/components/schemas/Motherboard"
+          },
+          "cpu": {
+            "$ref": "#/components/schemas/Cpu"
+          },
+          "gpu": {
+            "$ref": "#/components/schemas/Gpu"
+          },
+          "ram": {
+            "$ref": "#/components/schemas/Ram"
+          },
+          "resolution": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "owner",
+          "rig_name"
+        ]
+      },
+      "Motherboard": {
+        "type": "object",
+        "properties": {
+          "manufacturer": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "socket": {
+            "type": "string"
+          },
+          "size_factor": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "manufacturer",
+          "model",
+          "socket",
+          "size_factor"
+        ],
+        "x-$ref": "./models/mobo.js"
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "type": "string"
+          },
+          "rig": {
+            "$ref": "#/components/schemas/Rig"
+          }
+        },
+        "required": [
+          "username",
+          "email",
+          "password"
+        ],
+        "x-$ref": "./models/user.js"
+      },
+      "Cpu": {
+        "type": "object",
+        "properties": {
+          "manufacturer": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "core_amount": {
+            "type": "number"
+          },
+          "performance_boost_clock": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "manufacturer",
+          "model",
+          "core_amount",
+          "performance_boost_clock"
+        ],
+        "x-$ref": "./models/cpu.js"
+      },
+      "Gpu": {
+        "type": "object",
+        "properties": {
+          "manufacturer": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "vram": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "manufacturer",
+          "model",
+          "vram"
+        ],
+        "x-$ref": "./models/gpu.js"
+      },
+      "Ram": {
+        "type": "object",
+        "properties": {
+          "manufacturer": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "capacity": {
+            "type": "string"
+          },
+          "speed": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "manufacturer",
+          "model",
+          "capacity",
+          "speed"
+        ],
+        "x-$ref": "./models/ram.js"
+      }
+    }
+  }
+}

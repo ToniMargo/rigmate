@@ -1,11 +1,13 @@
 // const { ObjectId } = require("mongodb");
 
 module.exports = (mongoose) => {
+  const moboSchema = mongoose.Schema(require('./mobo'), { versionKey: false });
+  const cpuSchema = mongoose.Schema(require('./cpu'), { versionKey: false });
+  const gpuSchema = mongoose.Schema(require('./gpu'), { versionKey: false });
+  const ramSchema = mongoose.Schema(require('./ram'), { versionKey: false });
+
   const rigSchema = mongoose.Schema(
     {
-      _id: {
-        type: mongoose.Types.ObjectId
-      },
       owner: {
         type: String,
         required: true
@@ -18,47 +20,16 @@ module.exports = (mongoose) => {
         type: String
       },
       motherboard: {
-        manufacturer: {
-          type: String,
-          required: true
-        },
-        model: {
-          type: String,
-          required: true
-        }
+        type: moboSchema
       },
       cpu: {
-        manufacturer: {
-          type: String,
-          required: true
-        },
-        model: {
-          type: String,
-          required: true
-        }
+        type: cpuSchema
       },
       gpu: {
-        manufacturer: {
-          type: String,
-          required: true
-        },
-        model: {
-          type: String,
-          required: true
-        }
+        type: gpuSchema
       },
       ram: {
-        manufacturer: {
-          type: String,
-          required: true
-        },
-        capacity: {
-          type: Number,
-          required: true
-        },
-        speed: {
-          type: String
-        }
+        type: ramSchema
       },
       resolution: String
     },
@@ -86,8 +57,12 @@ module.exports = (mongoose) => {
     },
     { versionKey: false }
   );
+  const Mobo = mongoose.model('Mobo', moboSchema);
+  const Cpu = mongoose.model('Cpu', cpuSchema);
+  const Gpu = mongoose.model('Gpu', gpuSchema);
+  const Ram = mongoose.model('Ram', ramSchema);
   const User = mongoose.model('User', userSchema);
   const Rig = mongoose.model('Rig', rigSchema);
 
-  return { User, Rig };
+  return { Mobo, Cpu, Gpu, Ram, User, Rig };
 };
