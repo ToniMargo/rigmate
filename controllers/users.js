@@ -17,7 +17,7 @@ const getAllUsers = async (req, res, next) => {
 
 const getSingleUser = async (req, res, next) => {
   try {
-    const userId = new ObjectId(req.params.id);
+    const userId = new ObjectId(req.user.id);
 
     const doesExist = await User.findById(userId);
     if (!doesExist) throw createError.NotFound('User not found');
@@ -88,6 +88,19 @@ const deleteUser = async (req, res, next) => {
     await Rig.findByIdAndDelete(req.params.id);
 
     res.sendStatus(204); // No Content
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getUserRig = async (req, res, next) => {
+  try {
+    const owner = req.params.username;
+    const userRig = await Rig.find({ owner: owner });
+    if (!userRig) throw createError.NotFound("This user doesn't have a Rig");
+
+    const result = await Rig.findById(userRig);
+    res.send(result);
   } catch (error) {
     next(error);
   }
@@ -183,6 +196,7 @@ module.exports = {
   updateUser,
   deleteUser,
   createRig,
+  getUserRig,
   updateRig,
   deleteRig
 };

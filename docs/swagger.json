@@ -13,7 +13,7 @@
   "tags": [
     {
       "name": "User",
-      "description": "User operations"
+      "description": "As an admin, you can perform regular user operations"
     },
     {
       "name": "RIG",
@@ -41,9 +41,7 @@
       "get": {
         "summary": "Get all users",
         "operationId": "getAllUsers",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "responses": {
           "200": {
             "description": "A list of users",
@@ -63,9 +61,7 @@
       "post": {
         "summary": "Create a new user",
         "operationId": "createUser",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "requestBody": {
           "description": "User object to be created",
           "required": true,
@@ -95,9 +91,7 @@
       "get": {
         "summary": "Get a single user by ID",
         "operationId": "getSingleUser",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [
           {
             "name": "id",
@@ -128,9 +122,7 @@
       "put": {
         "summary": "Update a user by ID",
         "operationId": "updateUser",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [
           {
             "name": "id",
@@ -172,9 +164,7 @@
       "delete": {
         "summary": "Delete a user by ID",
         "operationId": "deleteUser",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [
           {
             "name": "id",
@@ -200,9 +190,7 @@
       "get": {
         "summary": "Get a single user's rig by ID",
         "operationId": "getUserRig",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [
           {
             "name": "id",
@@ -233,9 +221,7 @@
       "post": {
         "summary": "Create a new rig for a user",
         "operationId": "createRig",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [
           {
             "name": "id",
@@ -274,9 +260,7 @@
       "put": {
         "summary": "Update a user's rig by ID",
         "operationId": "updateRig",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [
           {
             "name": "id",
@@ -318,9 +302,7 @@
       "delete": {
         "summary": "Delete a user's rig by ID",
         "operationId": "deleteRig",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [
           {
             "name": "id",
@@ -346,9 +328,7 @@
       "get": {
         "summary": "Get all rigs",
         "operationId": "getAllRigs",
-        "tags": [
-          "RIG"
-        ],
+        "tags": ["RIG"],
         "responses": {
           "200": {
             "description": "A list of rigs",
@@ -370,9 +350,7 @@
       "get": {
         "summary": "Get a single rig by ID",
         "operationId": "getSingleRig",
-        "tags": [
-          "RIG"
-        ],
+        "tags": ["RIG"],
         "parameters": [
           {
             "name": "id",
@@ -405,9 +383,7 @@
       "get": {
         "summary": "Get all motherboards",
         "operationId": "getAllMobos",
-        "tags": [
-          "Motherboard"
-        ],
+        "tags": ["Motherboard"],
         "responses": {
           "200": {
             "description": "A list of motherboards",
@@ -427,9 +403,7 @@
       "post": {
         "summary": "Create a new motherboard",
         "operationId": "createMobo",
-        "tags": [
-          "Motherboard"
-        ],
+        "tags": ["Motherboard"],
         "requestBody": {
           "description": "Motherboard object to be created",
           "required": true,
@@ -459,9 +433,7 @@
       "get": {
         "summary": "Get a single motherboard by ID",
         "operationId": "getSingleMobo",
-        "tags": [
-          "Motherboard"
-        ],
+        "tags": ["Motherboard"],
         "parameters": [
           {
             "name": "id",
@@ -492,9 +464,7 @@
       "put": {
         "summary": "Update a motherboard by ID",
         "operationId": "updateMobo",
-        "tags": [
-          "Motherboard"
-        ],
+        "tags": ["Motherboard"],
         "parameters": [
           {
             "name": "id",
@@ -536,9 +506,7 @@
       "delete": {
         "summary": "Delete a motherboard by ID",
         "operationId": "deleteMobo",
-        "tags": [
-          "Motherboard"
-        ],
+        "tags": ["Motherboard"],
         "parameters": [
           {
             "name": "id",
@@ -564,9 +532,7 @@
       "get": {
         "summary": "Get all CPUs",
         "operationId": "getAllCpus",
-        "tags": [
-          "CPU"
-        ],
+        "tags": ["CPU"],
         "responses": {
           "200": {
             "description": "A list of CPUs",
@@ -586,9 +552,7 @@
       "post": {
         "summary": "Create a new CPU",
         "operationId": "createCpu",
-        "tags": [
-          "CPU"
-        ],
+        "tags": ["CPU"],
         "requestBody": {
           "description": "CPU object to be created",
           "required": true,
@@ -618,9 +582,7 @@
       "get": {
         "summary": "Get a single CPU by ID",
         "operationId": "getSingleCpu",
-        "tags": [
-          "CPU"
-        ],
+        "tags": ["CPU"],
         "parameters": [
           {
             "name": "id",
@@ -651,9 +613,7 @@
       "put": {
         "summary": "Update a CPU by ID",
         "operationId": "updateCpu",
-        "tags": [
-          "CPU"
-        ],
+        "tags": ["CPU"],
         "parameters": [
           {
             "name": "id",
@@ -695,9 +655,7 @@
       "delete": {
         "summary": "Delete a CPU by ID",
         "operationId": "deleteCpu",
-        "tags": [
-          "CPU"
-        ],
+        "tags": ["CPU"],
         "parameters": [
           {
             "name": "id",
@@ -723,9 +681,7 @@
       "get": {
         "summary": "Get all GPUs",
         "operationId": "getAllGpus",
-        "tags": [
-          "GPU"
-        ],
+        "tags": ["GPU"],
         "responses": {
           "200": {
             "description": "A list of GPUs",
@@ -745,9 +701,7 @@
       "post": {
         "summary": "Create a new GPU",
         "operationId": "createGpu",
-        "tags": [
-          "GPU"
-        ],
+        "tags": ["GPU"],
         "requestBody": {
           "description": "GPU object to be created",
           "required": true,
@@ -777,9 +731,7 @@
       "get": {
         "summary": "Get a single GPU by ID",
         "operationId": "getSingleGpu",
-        "tags": [
-          "GPU"
-        ],
+        "tags": ["GPU"],
         "parameters": [
           {
             "name": "id",
@@ -810,9 +762,7 @@
       "put": {
         "summary": "Update a GPU by ID",
         "operationId": "updateGpu",
-        "tags": [
-          "GPU"
-        ],
+        "tags": ["GPU"],
         "parameters": [
           {
             "name": "id",
@@ -854,9 +804,7 @@
       "delete": {
         "summary": "Delete a GPU by ID",
         "operationId": "deleteGpu",
-        "tags": [
-          "GPU"
-        ],
+        "tags": ["GPU"],
         "parameters": [
           {
             "name": "id",
@@ -882,9 +830,7 @@
       "get": {
         "summary": "Get all RAMs",
         "operationId": "getAllRams",
-        "tags": [
-          "RAM"
-        ],
+        "tags": ["RAM"],
         "responses": {
           "200": {
             "description": "A list of RAMs",
@@ -904,9 +850,7 @@
       "post": {
         "summary": "Create a new RAM",
         "operationId": "createRam",
-        "tags": [
-          "RAM"
-        ],
+        "tags": ["RAM"],
         "requestBody": {
           "description": "RAM object to be created",
           "required": true,
@@ -936,9 +880,7 @@
       "get": {
         "summary": "Get a single RAM by ID",
         "operationId": "getSingleRam",
-        "tags": [
-          "RAM"
-        ],
+        "tags": ["RAM"],
         "parameters": [
           {
             "name": "id",
@@ -969,9 +911,7 @@
       "put": {
         "summary": "Update a RAM by ID",
         "operationId": "updateRam",
-        "tags": [
-          "RAM"
-        ],
+        "tags": ["RAM"],
         "parameters": [
           {
             "name": "id",
@@ -1013,9 +953,7 @@
       "delete": {
         "summary": "Delete a RAM by ID",
         "operationId": "deleteRam",
-        "tags": [
-          "RAM"
-        ],
+        "tags": ["RAM"],
         "parameters": [
           {
             "name": "id",
@@ -1068,10 +1006,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "owner",
-          "rig_name"
-        ]
+        "required": ["owner", "rig_name"]
       },
       "Motherboard": {
         "type": "object",
@@ -1089,12 +1024,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "manufacturer",
-          "model",
-          "socket",
-          "size_factor"
-        ],
+        "required": ["manufacturer", "model", "socket", "size_factor"],
         "x-$ref": "./models/mobo.js"
       },
       "User": {
@@ -1114,11 +1044,7 @@
             "$ref": "#/components/schemas/Rig"
           }
         },
-        "required": [
-          "username",
-          "email",
-          "password"
-        ],
+        "required": ["username", "email", "password"],
         "x-$ref": "./models/user.js"
       },
       "Cpu": {
@@ -1137,12 +1063,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "manufacturer",
-          "model",
-          "core_amount",
-          "performance_boost_clock"
-        ],
+        "required": ["manufacturer", "model", "core_amount", "performance_boost_clock"],
         "x-$ref": "./models/cpu.js"
       },
       "Gpu": {
@@ -1158,11 +1079,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "manufacturer",
-          "model",
-          "vram"
-        ],
+        "required": ["manufacturer", "model", "vram"],
         "x-$ref": "./models/gpu.js"
       },
       "Ram": {
@@ -1181,12 +1098,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "manufacturer",
-          "model",
-          "capacity",
-          "speed"
-        ],
+        "required": ["manufacturer", "model", "capacity", "speed"],
         "x-$ref": "./models/ram.js"
       }
     }
