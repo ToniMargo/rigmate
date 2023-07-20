@@ -1,4 +1,4 @@
-// const { requiresAuth } = require('express-openid-connect');
+const { requiresAuth } = require('express-openid-connect');
 const { auth } = require('express-openid-connect');
 require('dotenv').config();
 
@@ -22,12 +22,12 @@ router.get('/', (req, res) => {
 });
 
 // database manipulation
-router.use('/', require('./swagger'));
-router.use('/users', require('./users'));
-router.use('/rigs', require('./rigs'));
-router.use('/mobos', require('./mobos'));
-router.use('/cpus', require('./cpus'));
-router.use('/gpus', require('./gpus'));
-router.use('/rams', require('./rams'));
+router.use('/', requiresAuth(), require('./swagger'));
+router.use('/users', requiresAuth(), require('./users'));
+router.use('/rigs', requiresAuth(), require('./rigs'));
+router.use('/mobos', requiresAuth(), require('./mobos'));
+router.use('/cpus', requiresAuth(), require('./cpus'));
+router.use('/gpus', requiresAuth(), require('./gpus'));
+router.use('/rams', requiresAuth(), require('./rams'));
 
 module.exports = router;
